@@ -5,26 +5,42 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
+    @lessons = Lesson.all
+    @teachers = Teacher.all
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
+    @students = Student.all
+    @lessons = Lesson.all
+    @teachers = Teacher.all
+    #@lesson_id = Lesson.find(params[:id].to_i)
   end
 
   # GET /students/new
   def new
     @student = Student.new
+    @lessons = Lesson.all
+    @teachers = Teacher.all
   end
 
   # GET /students/1/edit
   def edit
+    @lessons = Lesson.all
+    @teachers = Teacher.all
   end
 
   # POST /students
   # POST /students.json
   def create
+    @lessons = Lesson.all
+    @teachers = Teacher.all
     @student = Student.new(student_params)
+    # @student.lesson_id = @lessons.id
+    # @student.save
+
+
 
     respond_to do |format|
       if @student.save
@@ -40,6 +56,8 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
+    @lessons = Lesson.all
+    @teachers = Teacher.all
     respond_to do |format|
       if @student.update(student_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }

@@ -5,6 +5,7 @@ class TeachersController < ApplicationController
   # GET /teachers.json
   def index
     @teachers = Teacher.all
+    @lessons = Lesson.all
   end
 
   # GET /teachers/1
@@ -15,10 +16,12 @@ class TeachersController < ApplicationController
   # GET /teachers/new
   def new
     @teacher = Teacher.new
+    @lessons = Lesson.all
   end
 
   # GET /teachers/1/edit
   def edit
+    @lessons = Lesson.all
   end
 
   # POST /teachers

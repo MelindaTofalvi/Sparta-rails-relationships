@@ -5,25 +5,35 @@ class LessonsController < ApplicationController
   # GET /lessons.json
   def index
     @lessons = Lesson.all
+    @students = Student.all
+    @teachers = Teacher.all
   end
 
   # GET /lessons/1
   # GET /lessons/1.json
   def show
+    @students = Student.all
+    @teachers = Teacher.all
   end
 
   # GET /lessons/new
   def new
     @lesson = Lesson.new
+    @students = Student.all
+    @teachers = Teacher.all
   end
 
   # GET /lessons/1/edit
   def edit
+    @students = Student.all
+    @teachers = Teacher.all
   end
 
   # POST /lessons
   # POST /lessons.json
   def create
+    @students = Student.all
+    @teachers = Teacher.all
     @lesson = Lesson.new(lesson_params)
 
     respond_to do |format|
@@ -40,6 +50,8 @@ class LessonsController < ApplicationController
   # PATCH/PUT /lessons/1
   # PATCH/PUT /lessons/1.json
   def update
+    @students = Student.all
+    @teachers = Teacher.all
     respond_to do |format|
       if @lesson.update(lesson_params)
         format.html { redirect_to @lesson, notice: 'Lesson was successfully updated.' }

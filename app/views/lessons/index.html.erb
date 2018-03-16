@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Subject</th>
       <th>Level</th>
       <th>Teacher</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
+        <td><%= lesson.id %></td>
         <td><%= lesson.subject %></td>
         <td><%= lesson.level %></td>
         <td><%= lesson.teacher_id %></td>

@@ -27,13 +27,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :lesson_id %>
-    <%= form.text_field :lesson_id, id: :student_lesson_id %>
+    <%= form.collection_select(:lesson_id, Lesson.all, :id, :subject, { :prompt => 'Lesson', :selected => :lesson_id}) %>
   </div>
 
   <div class="field">
-    <%= form.label :teacher_id %>
-    <%= form.text_field :teacher_id, id: :student_teacher_id %>
+   <%= form.collection_select(:teacher_id, Teacher.all, :id, :name, { :prompt => 'Teacher', :selected => :teacher_id}) %>
   </div>
 
   <div class="actions">

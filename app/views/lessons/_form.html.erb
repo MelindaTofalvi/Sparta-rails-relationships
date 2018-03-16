@@ -22,8 +22,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :teacher_id %>
-    <%= form.text_field :teacher_id, id: :lesson_teacher_id %>
+    <%= form.collection_select(:teacher_id, Teacher.all, :id, :name, { :prompt => 'Teacher', :selected => :teacher_id}) %>
   </div>
 
   <div class="actions">
