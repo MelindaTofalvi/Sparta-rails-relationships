@@ -31,3 +31,7 @@ nav a {
 .green{
 	color:green;
 }
+
+#error_explanation ul {
+	color: black;
+}
