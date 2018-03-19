@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+   
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   # GET /students
@@ -72,12 +73,18 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
+    authorize @student
     @student.destroy
     respond_to do |format|
       format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+  def admin_list
+  authorize Post # we don't have a particular post to authorize
+  # Rest of controller action
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -19,10 +19,14 @@
         <td><%= lesson.id %></td>
         <td><%= lesson.subject %></td>
         <td><%= lesson.level %></td>
-        <td><%= @teachers.name %></td>
+        <td><%= lesson.teacher_id %></td>
         <td><%= link_to 'Show', lesson %></td>
         <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
-        <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if policy(lesson).destroy? %>
+          <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
+        <!-- <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>

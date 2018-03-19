@@ -21,6 +21,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new
     @students = Student.all
     @teachers = Teacher.all
+    authorize @lesson
   end
 
   # GET /lessons/1/edit
@@ -66,12 +67,17 @@ class LessonsController < ApplicationController
   # DELETE /lessons/1
   # DELETE /lessons/1.json
   def destroy
+    authorize @lesson
     @lesson.destroy
     respond_to do |format|
       format.html { redirect_to lessons_url, notice: 'Lesson was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+  def publish
+  authorize @lesson, :update?
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
